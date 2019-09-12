@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	{% load staticfiles %}
+	<link href="{% static 'products/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'products/css/style.css' %}">
+	<script src="{% static 'products/bootstrap/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+            <div class="row"> <!-- cartegory row -->
+				<a href="{% url 'company:category-add' %}"><button type="button" class="btn btn-default">Add Category</button> </a>
+				<h3>All Categories</h3>
+				{% for cartegories in object_list%}
+				<!-- ########################################################################## -->
+
+					<div class="col-md-3">
+
+					<a href="{% url 'company:category' cartegories.id %}">
+						<img src="{{ cartegories.cartegory_logo.url }}" class="img-rounded" width="200" height="200">
+						<p>{{ cartegories.cartegory_name }}</p>
+					</a>
+					</div>
+
+				<!-- ########################################################################## -->
+				{% endfor%}
+            </div> <!-- end of cartegory row-->
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends 'products/base.html' %}
+
+{% block body %}
+
+
+
+
+<div class="col-md-12"> <!-- center panel -->
+			
+			
+				<div class="row"> <!-- cartegory row -->
+				<h3>All Categories</h3>
+				{% for cartegories in all_categories%}
+				<!-- ########################################################################## -->
+				
+					<div class="col-md-4">
+					
+					<a href="{{cartegories.id}}/">
+						<img src="{{ cartegories.cartegory_logo.url }}" class="img-circle" width="200" height="200">
+						<p>{{ cartegories.cartegory_name }}</p>
+					</a>
+					</div>
+					
+				<!-- ########################################################################## -->
+				{% endfor%}
+				</div> <!-- end of cartegory row-->
+			
+
+
+
+			<div class="container-fluid"><h3>All Products</h3></div>
+
+
+			<div class="row productList" onclick="cartApp.addToCart(event)"> <!-- products row -->
+			<!-- ########################################################################## -->
+			{% for products in all_products %}
+				<div class="col-md-3 col-sm-6">
+					<div >
+					<a href="/products/{{products.cartegory.id}}/{{products.id}}/">
+					<img src="{{ products.product_logo.url }}" class="img-rounded product-img" width="150" height="150">
+					</a>
+					</div>
+					<div class="caption">
+					<a href="/products/{{products.cartegory.id}}/{{products.id}}/">
+						<h4><label class="product-name"> {{ products.product_name }}</label></h4>
+						<p><label class="product-price"> Ksh.{{ products.product_cost }}</label></p>
+					</a>
+						<p>
+						<a href="#" class="btn btn-primary" role="button">
+						Favorite
+						</a>
+						<a class="btn btn-default" role="button">
+                            <label class="addToCartBtn">Add to Cart</label>
+						</a>
+						</p>
+					</div>
+				</div>
+			{% endfor %}
+			
+					
+				
+
+			<!-- ########################################################################## -->
+			</div> <!-- end of products row -->
+
+
+			<div> <!-- page navigation-bar -->
+
+				<ul class="pagination">
+				<li><a href="#">&laquo;</a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">&raquo;</a></li>
+				</ul>
+				
+			</div> <!-- end of page navigatio-bar -->
+
+		</div> <!-- end of center panel -->
+
+{% endblock %}

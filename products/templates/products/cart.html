@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+
+{% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'products/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'products/css/cart.css' %}">
+    <script src="{% static 'products/js/appCart.js' %}"></script>
+
+</head>
+<body class="cart-body" onload="cartApp.getCartDisplay()">
+
+
+
+<div class="col-md-9 col-sm-11 main-container cart-body">
+
+    <div class="col display-table">
+        <!-- Headers -->
+        <div class="row headers">
+            <div class="col-3">Name</div>
+            <div class="col-3">Quantity</div>
+            <div class="col-2">Price</div>
+            <div class="col-2">Total Price</div>
+            <div class="col-2"></div>
+        </div>
+        <!-- Cart list -->
+        <!--
+        <div class="row list">
+            <div class="col-3">Name</div>
+            <div class="col-3">
+                <button class="btn-sub">-</button>
+                2
+                <button class="btn-add">+</button>
+            </div>
+            <div class="col-2">100</div>
+            <div class="col-2">200</div>
+            <div class="col-2">
+                <button class="btn-remove">-</button>
+            </div>
+        </div>
+        -->
+
+
+    </div>
+    <div class="row bottom">
+        <div class="col totalCost">
+            <!--
+            <div class="row"><label>Ksh.600</label></div>
+            -->
+            <div class="row">
+                <button class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+</html>
+

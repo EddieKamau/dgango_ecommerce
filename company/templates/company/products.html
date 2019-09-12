@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+>
+    <title>Title</title>
+    	{% load staticfiles %}
+	<link href="{% static 'products/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'products/css/style.css' %}">
+	<script src="{% static 'products/bootstrap/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+    <div class="row">
+        <a href="{% url 'company:productadd'%}"><button type="button" class="btn btn-default">Add Product</button></a>
+        <div class="col-md-8">
+            <h2>{{cartegories.cartegory_name}}</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product field</th>
+                        <th>Product cost</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for product in products%}
+                        <tr>
+                            <td>{{ product.product_name }}</td>
+                            <td>{{ product.product_field }}</td>
+                            <td>{{ product.product_cost }}</td>
+                            <td><a href=""><button type="button" class="btn btn-default" href="#">Delete</button></a></td>
+                            <td><a href="/company/{{product.cartegory.id}}/{{product.id}}/"><button type="button" class="btn btn-default">View</button></a></td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+
+            <table class="table">
+                <tr>
+                    <td colspan="2"><img src="{{product_details.product_logo.url}}" width="300" height="300" align="center" ></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{ product_details.product_name }}</td>
+                </tr>
+                <tr>
+                    <td>Category:</td>
+                    <td>{{ product_details.product_field }}</td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td>{{ product_details.product_cost }}</td>
+                </tr>
+                <tr>
+                    <td>Details:</td>
+                    <td>{{ product_details.product_details }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <a href="/company/{{product_details.cartegory.id}}/{{product_details.id}}/edit/"><button type="button" class="btn btn-default">Edit</button></a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>

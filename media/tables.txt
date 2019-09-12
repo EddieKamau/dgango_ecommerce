@@ -1,0 +1,17 @@
+online db
+tables:
+	cartegories	{
+			cartegory_title
+			cartegory_logo
+			}
+	product		{
+			prodduct_name
+			product_cartegory
+			product_picture
+			product_description
+			product_cost
+			}
+	transit		{
+			product_like
+			product_cart
+			}

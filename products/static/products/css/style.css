@@ -1,0 +1,62 @@
+#side_panel{
+	height: 100%;
+
+	background-color: #2C3E50;
+	overflow-y: hidden;
+
+}
+.drop_menu{
+	ul{
+		padding: 0;
+		list-style: none;
+		background: #f2f2f2;
+	}
+	ul li{
+		display: inline-block;
+		position: relative;
+		line-height: 21px;
+		text-align: left;
+	}
+	ul li a{
+		display: block;
+		padding: 8px 25px;
+		color: #333;
+		text-decoration: none;
+	}
+	ul li a:hover{
+		color: #fff;
+		background: #939393;
+	}
+	ul li ul.dropdown{
+		min-width: 100%;
+		background: #f2f2f2;
+		display: none;
+		position: absolute;
+		z-index: 999;
+		left: 0;
+	}
+	ul li:hover ul.dropdown{
+		display: block;
+	}
+	ul li ul.dropdown li{
+		display: block;
+	}
+}
+.searchInput{
+	background-color: whitesmoke;
+	border-radius:10px;
+	margin-top: 10px;
+	margin-right: 0;
+}
+.searchBtn{
+	background-color: #00b3ee;
+	margin: 0;
+	margin-top: 10px;
+	font-weight: bold;
+	color: black;
+	border-radius:10px;
+}
+.body{
+	margin-right: 0;
+	margin: auto 220px;
+}

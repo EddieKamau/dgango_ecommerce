@@ -1,0 +1,31 @@
+body{
+    background-color: aliceblue;
+}
+
+
+.main-container{
+    margin: .8em;
+}
+
+.headers{
+    font-weight: bold;
+    color: rgba(0,33,43,0.88);
+    background-color: rgba(191,151,99,0.88);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+}
+
+.list{
+    padding: 8px;
+}
+
+.bottom{
+    float: right;
+    margin: 10px;
+
+}
+
+
+.list:nth-child(even) { background-color: rgba(178,255,178,0.15);}
+.list:nth-child(odd) { background-color: #fff;}

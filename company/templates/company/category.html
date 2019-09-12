@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+<head>
+>
+    <title>Title</title>
+    	{% load staticfiles %}
+	<link href="{% static 'products/bootstrap/dist/css/bootstrap.min.css'%}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'products/css/style.css' %}">
+	<script src="{% static 'products/bootstrap/js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+    <div class="row">
+        <a href="{% url 'company:productadd'%}"><button type="button" class="btn btn-default">Add Product</button></a>
+        <div class="col-md-8">
+            <h2>{{cartegories.cartegory_name}}</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product field</th>
+                        <th>Product cost</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for products in cartegories.products_set.all%}
+                        <tr>
+                            <td>{{ products.product_name }}</td>
+                            <td>{{ products.product_field }}</td>
+                            <td>{{ products.product_cost }}</td>
+                            <td>
+                                <form action="{% url 'company:productdelete' cartegories.id products.id %}" method="post">
+                                    {% csrf_token %}
+
+                                    <input type="submit" value="Delete" class="btn btn-default"/>
+
+                                </form>
+                            </td>
+                            <td><a href="{% url 'company:products' cartegories.id products.id %}"><button type="button" class="btn btn-default">View</button></a></td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+
+</body>
+</html>
